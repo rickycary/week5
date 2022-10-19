@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+</body>
+    <main>
+<!-- //========================================================================= -->
+        <script>
+            // save url in a variable
+            const url = "https://dummydata.netlify.app/mariones.json"
+    
+            // use ajax, save returned promise in variable
+            const request = $.ajax(url)
+    
+            // use then, log data
+            request.then((data) => {
+                console.log(data)
+    
+                //let's render the to the screen
+                $main = $("main") // grab the main el
+    
+                data.nes_games.forEach((game, index) => {
+                    const div = $("<div>")
+                    div.html(`<h1>${game.name}</h1>
+                    <img src=${game.img}>`)
+                    $main.append(div)
+                })
+    
+            })
+        </script>
+<!-- //========================================================================= -->
+    </main>
+</html>
